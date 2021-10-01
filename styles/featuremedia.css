@@ -1,0 +1,11 @@
+.featured-media{
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+.featured-media .video{
+    position: absolute;
+    z-index: 1;
+    transform: scale(2);
+} 
