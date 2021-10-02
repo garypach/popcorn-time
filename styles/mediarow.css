@@ -1,0 +1,67 @@
+.mediarow{
+    padding: 20px 0 20px 50px;
+}
+.mediarow .mediarow-title{
+    font-weight: 500;
+    color: white;
+    font-size: 1.5rem;
+}
+.mediarow .mediarow-posters{
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    width: 100vw - 70px;
+    overflow-x: scroll;
+}
+
+.mediarow-posters::-webkit-scrollbar{
+    display: none;
+}
+.mediarow .mediarow-poster{
+   position: relative;
+   margin-right: 30px;
+   min-width: 200px;
+   height: 253px;
+}
+.mediarow .mediarow-poster img{
+    width: 400px;
+    height: 253px;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+}
+.mediarow .mediarow-posters .skeleton-img{
+    width: 200px;
+    height: 300px;
+
+}
+
+.mediarow .mediarow-posters .skeleton-img{
+    background: rgb(19,19,19);
+    margin: 10px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mediarow .mediarow-posters .skeleton-img::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.055);
+    height: 100%;
+    transform: skew(5deg);
+    animation: shine infinite 1.5s ease-in-out;
+    filter: blur(100px);
+}
+
+@keyframes shine{
+    from{
+        transform: skew(45deg) translate(-200%);
+    }
+    to{
+        transform: skew(45deg) translate(300%);
+
+    }
+}

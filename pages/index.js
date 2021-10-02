@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/styles.css'
+import Home from '../components/home'
 
-export default function Home() {
+
+export default function index() {
   return (
-    <div></div>
+    <Home/>
   )
 }
