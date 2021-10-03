@@ -9,3 +9,6 @@
     z-index: 1;
     transform: scale(2);
 } 
+iframe{
+    pointer-events: none;
+}

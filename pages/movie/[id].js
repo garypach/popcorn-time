@@ -8,6 +8,9 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import api_key from '../../api'
+import { shuffle } from '../../components/util/utilityfunctions'
+import LazyLoad from 'react-lazyload'
+import Skeleton from '../../components/skeleton'
 
 export default function SingleMediaPage(props) {
     const router = useRouter()
@@ -38,15 +41,22 @@ export default function SingleMediaPage(props) {
             setError(error);
           }
         )
-    }, [])
-
-      
-  return (
+    }, [props.query.id])
+   const onekey = media
+              .map(keys=>keys.key);
+    shuffle(onekey);
+    let video = `https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`
+    return (
     <MainLayout>
         <h1>{media.title}</h1>
-       <FeaturedVideo video="https://www.youtube.com/embed/aYSy8guUUV0?autoplay=1&loop=1&start=1&mute=1" title="Jurrassic Park"/>
-       <MediaRow title="What's Trending?" endpoint ="trending/all/day??&language=en-US&sort_by=popularity.desc&include_video=true"/>
-        <CastInfo/>
+       <FeaturedVideo 
+       mediaURL={video} 
+       title=""
+       
+       />
+<      LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
+       <MediaRow title="Simalar To This" endpoint = {`/movie/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
+       </LazyLoad>        <CastInfo/>
     </MainLayout>
   )
 }

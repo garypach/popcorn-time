@@ -9,7 +9,7 @@ import Skeleton from './skeleton'
 const Home = (props) => {
   return (
     <MainLayout>
-       <FeaturedVideo video="https://www.youtube.com/embed/8hjB6UJ2kMU?autoplay=1&loop=1&start=1&mute=1" title="Jurrassic Park"/>
+       <FeaturedVideo mediaURL="https://www.youtube.com/embed/8hjB6UJ2kMU?autoplay=1&loop=1&start=1&mute=1" title="Jurrassic Park"/>
        <LazyLoad height={200} offset={200} placeholder={<Skeleton/>}>
        <MediaRow title="What's Trending?" endpoint ="trending/all/day??&language=en-US&sort_by=popularity.desc&include_video=true"/>
        </LazyLoad>

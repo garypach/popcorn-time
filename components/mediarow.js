@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import api_key from "../api";
 import { shuffle } from "./util/utilityfunctions";
+import Link from "next/link"
+
 const MediaRow = (props) =>
 {
     const [error, setError] = useState(null);
@@ -70,7 +72,9 @@ const MediaRow = (props) =>
 
 const Poster = (props) => {
     return(
-        <div className="mediarow-poster">
+        <Link href={`/movie/${props.mediaData.id}`}>
+              <a>
+  <div className="mediarow-poster">
                 <Image 
                 src={`https://image.tmdb.org/t/p/original${props.mediaData.poster_path}`}
                 alt="poster"
@@ -78,6 +82,10 @@ const Poster = (props) => {
                 height="100%"
                 ></Image>
         </div>
+        </a>
+        </Link>
+      
+      
     )
 }
 const Skeleton = () => {
