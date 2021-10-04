@@ -11,6 +11,7 @@ import api_key from '../../api'
 import { shuffle } from '../../components/util/utilityfunctions'
 import LazyLoad from 'react-lazyload'
 import Skeleton from '../../components/skeleton'
+import MediaDetails from '../../components/mediadetails'
 
 export default function SingleMediaPage(props) {
     const router = useRouter()
@@ -52,11 +53,14 @@ export default function SingleMediaPage(props) {
        <FeaturedVideo 
        mediaURL={video} 
        title=""
-       
        />
-<      LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
-       <MediaRow title="Simalar To This" endpoint = {`/movie/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
-       </LazyLoad>        <CastInfo/>
+       <MediaDetails endpoint={`movie/${props.query.id}`}/>
+       <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
+       <CastInfo endpoint={`movie/${props.query.id}/credits`}/>
+       </LazyLoad> 
+       <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
+       <MediaRow title="Simalar To This" endpoint = {`movie/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
+       </LazyLoad> 
     </MainLayout>
   )
 }

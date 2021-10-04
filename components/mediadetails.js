@@ -2,11 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
 import api_key from "../api";
-import { shuffle } from "./util/utilityfunctions";
-import Link from "next/link"
-import { loopposter } from "./util/utilityfunctions";
 
-const MediaRow = (props) =>
+const MediaDetails = (props) =>
 {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -18,13 +15,13 @@ const MediaRow = (props) =>
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-      fetch(`https://api.themoviedb.org/3/${props.endpoint}&api_key=${api_key}`)
+      fetch(`https://api.themoviedb.org/3/${props.endpoint}?api_key=${api_key}&language=en-US`)
         .then(res => res.json())
         .then(
           (result) => {
             setLoadingData(false);
             setIsLoaded(true);
-            setMedia(shuffle(result.results));
+            setMedia(result);
             console.log(result)
           },
           // Note: it's important to handle errors here
@@ -35,38 +32,47 @@ const MediaRow = (props) =>
             setError(error);
           }
         )
-    }, [])
+    }, [props.endpoint])
+
+    
   
 
     const showPoster = () => {
         if(loadingData){
-            return loopposter((<Skeleton/>),10) 
+            return <Skeleton/>
         }else{
             return (
-                  media.map(mediaresult => (
-                    <Poster mediaData={mediaresult} key={mediaresult.id}/>
-                  ))
-              );
+                <Poster mediaData={media} key={media.id}/>
+            );
         }
     
     };
-    
+
    return(
-       <div className="mediarow">
-           <h3 className="mediarow-title">{props.title}</h3>
-           <div className="mediarow-posters">
+       <div className="media-details">
+           <div className="media-image">
+           <div className="media-poster">
                {showPoster()}
             </div>
-           
+           </div>
+           <div className="details">
+             <h2 className="media-title">{media.title}</h2>
+             <div className="media-times">
+                 <p>{media.release_date}</p>
+                 <p>{media.runtime}m</p>
+             </div>
+             <div className="media-overview">
+                 <p>Overview</p>
+                 <p>{media.overview}</p>
+             </div>
+           </div>           
        </div>
    )
 }
 
 const Poster = (props) => {
     return(
-        <Link href={`/movie/${props.mediaData.id}`}>
-              <a>
-  <div className="mediarow-poster">
+  <div className="mediadetails-poster">
                 <Image 
                 src={`https://image.tmdb.org/t/p/original${props.mediaData.poster_path}`}
                 alt="poster"
@@ -74,8 +80,6 @@ const Poster = (props) => {
                 height="100%"
                 ></Image>
         </div>
-        </a>
-        </Link>
       
       
     )
@@ -88,4 +92,4 @@ const Skeleton = () => {
     )
 }
 
-export default MediaRow
+export default MediaDetails

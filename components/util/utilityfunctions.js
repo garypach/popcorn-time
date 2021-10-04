@@ -6,3 +6,11 @@ export function shuffle(array){
 
     return array;
 }
+
+export function loopposter(comp,digit){
+    let poster =[];
+    for(let index = 0; index <= digit; index++){
+        poster.push(comp);
+    }
+    return poster;
+};
