@@ -26,7 +26,7 @@ export default function SingleMediaPage(props) {
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-      fetch(`https://api.themoviedb.org/3/movie/${props.query.id}/videos?api_key=${api_key}`)
+      fetch(`https://api.themoviedb.org/3/${props.query.mediatype}/${props.query.id}/videos?api_key=${api_key}`)
         .then(res => res.json())
         .then(
           (result) => {
@@ -42,7 +42,7 @@ export default function SingleMediaPage(props) {
             setError(error);
           }
         )
-    }, [props.query.id])
+    }, [props.query.mediatype,props.query.id])
    const onekey = media
               .map(keys=>keys.key);
     shuffle(onekey);
@@ -54,12 +54,12 @@ export default function SingleMediaPage(props) {
        mediaURL={video} 
        title=""
        />
-       <MediaDetails endpoint={`movie/${props.query.id}`}/>
+       <MediaDetails endpoint={`${props.query.mediatype}/${props.query.id}`}/>
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
-       <CastInfo endpoint={`movie/${props.query.id}/credits`}/>
+       <CastInfo endpoint={`${props.query.mediatype}/${props.query.id}/credits`}/>
        </LazyLoad> 
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
-       <MediaRow title="Simalar To This" endpoint = {`movie/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
+       <MediaRow title="Simalar To This" endpoint = {`${props.query.mediatype}/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
        </LazyLoad> 
     </MainLayout>
   )

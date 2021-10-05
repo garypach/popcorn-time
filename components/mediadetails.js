@@ -42,7 +42,7 @@ const MediaDetails = (props) =>
             return <Skeleton/>
         }else{
             return (
-                <Poster mediaData={media} key={media.id}/>
+                <Poster mediaData={media} mediatype={media.first_air_date ? props.mediatype == "tv" : props.mediatype == "movie"} key={media.id}/>
             );
         }
     
@@ -56,10 +56,10 @@ const MediaDetails = (props) =>
             </div>
            </div>
            <div className="details">
-             <h2 className="media-title">{media.title}</h2>
+             <h2 className="media-title">{media.first_air_date ? media.name : media.title}</h2>
              <div className="media-times">
-                 <p>{media.release_date}</p>
-                 <p>{media.runtime}m</p>
+                 <p>{media.first_air_date ? "episodes " : "release date "}{media.first_air_date ? media.number_of_episodes : media.release_date} </p>
+                 <p>{media.first_air_date ? " season(s) " : "runtime "}{media.first_air_date ? media.number_of_seasons : media.runtime}{media.first_air_date ? "" : "m"}</p>
              </div>
              <div className="media-overview">
                  <p>Overview</p>

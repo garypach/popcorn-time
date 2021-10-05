@@ -44,7 +44,7 @@ const MediaRow = (props) =>
         }else{
             return (
                   media.map(mediaresult => (
-                    <Poster mediaData={mediaresult} key={mediaresult.id}/>
+                    <Poster mediaData={mediaresult} mediatype={mediaresult.first_air_date ? "tv" : "movie"} key={mediaresult.id}/>
                   ))
               );
         }
@@ -64,7 +64,7 @@ const MediaRow = (props) =>
 
 const Poster = (props) => {
     return(
-        <Link href={`/movie/${props.mediaData.id}`}>
+        <Link href={`/${props.mediatype}/${props.mediaData.id}`}>
               <a>
   <div className="mediarow-poster">
                 <Image 
