@@ -1,14 +1,14 @@
 import Image from 'next/image'
-import FeaturedVideo from '../../components/featured'
-import MainLayout from '../../components/mainlayout'
-import MediaRow from '../../components/mediarow'
+import FeaturedVideo from '../../../components/featured'
+import MainLayout from '../../../components/mainlayout'
+import MediaRow from '../../../components/mediarow'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import api_key from '../../api'
+import api_key from '../../../api'
 import LazyLoad from 'react-lazyload'
-import Skeleton from '../../components/skeleton'
-import GenreNav from '../../components/genrenav'
+import Skeleton from '../../../components/skeleton'
+import GenreNav from '../../../components/genrenav'
 import axios from 'axios'
 export default function Index(props){
   const router = useRouter()
@@ -40,14 +40,15 @@ export default function Index(props){
   //     )
   // }, [])
   
+
   const showRandomMedia = () => {
     return props.mediaData.map((item, index)=>(
-      <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>} key = {item.id}>
-       <MediaRow title={`${item.name}`} endpoint ={`discover/${props.query.mediatype}?with_genres=${item.id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021`}/>
+      <LazyLoad height={200} offset={100} placeholder={<Skeleton/>} key = {index}>
+       <MediaRow title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021${pageCount()}`}/>
        </LazyLoad>
     ))
   }
-
+  
   return (
     <MainLayout>
        <FeaturedVideo mediaURL="https://www.youtube.com/embed/8hjB6UJ2kMU?autoplay=1&loop=1&start=1&mute=1" title="Jurrassic Park"/>

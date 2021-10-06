@@ -46,12 +46,11 @@ export default function SingleMediaPage(props) {
    const onekey = media
               .map(keys=>keys.key);
     shuffle(onekey);
-    let video = `https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`
     return (
     <MainLayout>
         <h1>{media.title}</h1>
        <FeaturedVideo 
-       mediaURL={video} 
+       mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} 
        title=""
        />
        <MediaDetails endpoint={`${props.query.mediatype}/${props.query.id}`}/>

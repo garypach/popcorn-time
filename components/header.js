@@ -9,6 +9,11 @@ const Header = (props) =>
                 <h1>POPCORN TIME</h1>
            </a>
            </Link>
+           <Link href="/">
+            <a className="links">
+                <p>Home</p>
+           </a>
+           </Link>
            <Link href="/movie">
             <a className="links">
                 <p>Movies</p>

@@ -35,7 +35,7 @@ const MediaRow = (props) =>
             setError(error);
           }
         )
-    }, [])
+    }, [props.endpoint])
   
 
     const showPoster = () => {
