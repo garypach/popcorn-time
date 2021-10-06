@@ -44,7 +44,7 @@ export default function Index(props){
   const showRandomMedia = () => {
     return props.mediaData.map((item, index)=>(
       <LazyLoad height={200} offset={100} placeholder={<Skeleton/>} key = {index}>
-       <MediaRow title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021${pageCount()}`}/>
+       <MediaRow title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=${index+1}`}/>
        </LazyLoad>
     ))
   }
