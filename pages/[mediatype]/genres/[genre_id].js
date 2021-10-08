@@ -49,14 +49,14 @@ export default function Index(props){
   const showRandomMedia = () => {
     return props.mediaData.map((item, index)=>(
       <LazyLoad height={200} offset={100} placeholder={<Skeleton/>} key = {index}>
-       <MediaRow title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=${index+1}`}/>
+       <MediaRow page="genre" imgSize="small-genre"title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=${index+1}`}/>
        </LazyLoad>
     ))
   }
   
   return (
     <MainLayout>
-       <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.genreData.name ? props.genreData.name : props.genreData.title}/>
+       <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.genreData.name ? props.genreData.name : props.genreData.title} overview={props.genreData.overview}/>
        <GenreNav mediaType={props.query.mediatype} genreData={props.mediaData}/>
        <p className="genreHeading">{props.genreData.name ? "TV Shows" : "Movies"}</p>
        {showRandomMedia()}

@@ -3,9 +3,11 @@ import Link from "next/link"
 const GenreNav = (props) =>
 {
    return(
-       <ul className="genre-nav">
+        <ul className="genre-nav">
         <GenreList genreData={props.genreData} mediaType={props.mediaType}/>
        </ul>
+       
+       
    )
 }
 

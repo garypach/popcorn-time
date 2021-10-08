@@ -37,12 +37,12 @@ const MediaDetails = (props) =>
     
   
 
-    const showPoster = () => {
+    const showPoster = (size) => {
         if(loadingData){
             return <Skeleton/>
         }else{
             return (
-                <Poster mediaData={media} mediatype={media.first_air_date ? props.mediatype == "tv" : props.mediatype == "movie"} key={media.id}/>
+                <Poster mediaData={media} size = { size } mediatype={media.first_air_date ? props.mediatype == "tv" : props.mediatype == "movie"} key={media.id}/>
             );
         }
     
@@ -52,7 +52,7 @@ const MediaDetails = (props) =>
        <div className="media-details">
            <div className="media-image">
            <div className="media-poster">
-               {showPoster()}
+           {showPoster(props.imgSize)}
             </div>
            </div>
            <div className="details">
@@ -71,12 +71,26 @@ const MediaDetails = (props) =>
 }
 
 const Poster = (props) => {
+    const posterSize = (size)=>{
+        if(size === 'large-v'){
+            return '500';
+        }
+        if(size === 'small-v'){
+            return '185';
+        }
+        if(size === 'large-h'){
+            return '780';
+        }
+        if(size === 'small-h'){
+            return '342';
+        }
+    };
     return(
   <div className="mediadetails-poster">
                 <Image 
-                src={`https://image.tmdb.org/t/p/original${props.mediaData.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w${posterSize(props.size)}${props.mediaData.poster_path}`}
                 alt="poster"
-                width="100%"
+                width={`${posterSize(props.size)}px`}
                 height="100%"
                 ></Image>
         </div>

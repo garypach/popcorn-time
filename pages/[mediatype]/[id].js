@@ -51,14 +51,14 @@ export default function SingleMediaPage(props) {
         <h1>{media.title}</h1>
        <FeaturedVideo 
        mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} 
-       title=""
+       title={""}
        />
-       <MediaDetails endpoint={`${props.query.mediatype}/${props.query.id}`}/>
+       <MediaDetails imgSize="large-v" endpoint={`${props.query.mediatype}/${props.query.id}`}/>
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
        <CastInfo endpoint={`${props.query.mediatype}/${props.query.id}/credits`}/>
        </LazyLoad> 
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
-       <MediaRow imgSize = 'small-v' title="Simalar To This" endpoint = {`${props.query.mediatype}/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
+       <MediaRow page="default" imgSize = 'small-v' title="Simalar To This" endpoint = {`${props.query.mediatype}/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
        </LazyLoad> 
     </MainLayout>
   )

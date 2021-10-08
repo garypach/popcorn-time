@@ -7,7 +7,7 @@ import axios from 'axios'
 import Home from '../components/home'
 import FeaturedVideo from '../components/featured'
 import MainLayout from '../components/mainlayout'
-
+import Link from 'next/link'
 export default function Index(props) {
 
   const [error, setError] = useState(null);
@@ -38,7 +38,11 @@ export default function Index(props) {
 
   return (
     <MainLayout>
-    <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.videoData.title}/>
+      <Link href={`/movie/${props.videoData.id}`}>
+        <a>
+    <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.videoData.title} overview={props.videoData.overview}/>
+    </a>
+    </Link>
     <Home/>
     </MainLayout>
   )
@@ -47,7 +51,7 @@ export default function Index(props) {
 export async function getServerSideProps() {
   let videoData;
   try{
-    videoData = await axios.get(`https://api.themoviedb.org/3/discover/movie?&language=en-US&sort_by=popularity.desc&include_video=true&api_key=${api_key}`);
+    videoData = await axios.get(`https://api.themoviedb.org/3/discover/movie?&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&api_key=${api_key}`);
     console.log(videoData)
 
   }catch(error){

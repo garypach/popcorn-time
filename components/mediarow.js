@@ -5,6 +5,8 @@ import api_key from "../api";
 import { shuffle } from "./util/utilityfunctions";
 import Link from "next/link"
 import { loopposter } from "./util/utilityfunctions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 const MediaRow = (props) =>
 {
@@ -55,7 +57,7 @@ const MediaRow = (props) =>
    return(
        <div className={`mediarow ${props.imgSize}`}>
            <h3 className="mediarow-title">{props.title}</h3>
-           <div className="mediarow-posters">
+           <div className={`mediarow-posters ${props.page}`}>
                {showPoster(props.imgSize)}
             </div>
            
@@ -68,13 +70,13 @@ const Poster = (props) => {
         if(size === 'large-v'){
             return '500';
         }
-        if(size === 'small-v'){
+        if(size === 'small-v' ){
             return '185';
         }
         if(size === 'large-h'){
             return '780';
         }
-        if(size === 'small-h'){
+        if(size === 'small-h' || size === 'small-genre'){
             return '342';
         }
     };
@@ -88,7 +90,17 @@ const Poster = (props) => {
                 width={`${posterSize(props.size)}px`}
                 height="100%"
                 ></Image>
+                  <div className="mediarow-poster-bg">
+        <div className="mediarow__container">
+          <div className="mediarow-poster-title">{props.title}</div>
+          <div className="mediarow-poster-buttons">
+            <div className="mediarow-poster-play-btn">
+            <FontAwesomeIcon  icon={faPlay} />
+            </div>
+          </div>
         </div>
+        </div>
+    </div>
         </a>
         </Link>
       
@@ -99,6 +111,7 @@ const Skeleton = () => {
     return(
         <div className="poster-skeleton">
             <div className="skeleton-img"></div>
+            
         </div>
     )
 }

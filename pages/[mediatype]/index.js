@@ -49,14 +49,14 @@ export default function Index(props){
   const showRandomMedia = () => {
     return props.mediaData.map((item, index)=>(
       <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>} key = {item.id}>
-       <MediaRow title={`${item.name}`} endpoint ={`discover/${props.query.mediatype}?with_genres=${item.id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021`}/>
+       <MediaRow page="default" imgSize="large-v"title={`${item.name}`} endpoint ={`discover/${props.query.mediatype}?with_genres=${item.id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021`}/>
        </LazyLoad>
     ))
   }
 
   return (
     <MainLayout>
-       <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.genreData.name ? props.genreData.name : props.genreData.title}/>
+       <FeaturedVideo overview={props.genreData.overview} mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.genreData.name ? props.genreData.name : props.genreData.title}/>
        <GenreNav mediaType={props.query.mediatype} genreData={props.mediaData}/>
        {showRandomMedia()}
     </MainLayout>

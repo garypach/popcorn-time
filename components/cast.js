@@ -53,7 +53,7 @@ const CastInfo= (props) =>
   };
 
     return(
-      <div className="mediarow">
+      <div className="mediarow small-c">
            <h3 className="mediarow-title">{props.title}</h3>
            <div className="mediarow-posters">
                {showCast()}
@@ -79,11 +79,13 @@ const Cast = (props) => {
  
   return (
     <a>
-      <div className="mediarow-poster">
-        <div>
-         {castImage()}
-          <div> {props.character} </div>
-          <div> {props.castName} </div>
+      <div className="mediarow-poster small-v">
+      {castImage()}
+      <div className="mediarow-cast-bg">
+        <div className="mediarow-cast-container">
+          <div className="mediarow-cast-char">{props.character}</div>
+          <div className="mediarow-cast-name">{props.castName}</div>
+        </div>
         </div>
       </div>
     </a>

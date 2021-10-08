@@ -4,9 +4,10 @@
 .mediarow .mediarow-title{
     font-weight: 500;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    padding-bottom: 20px;
 }
-.mediarow .mediarow-posters{
+.mediarow-posters{
     display: flex;
     flex-wrap: nowrap;
     min-width: 100%;
@@ -14,36 +15,60 @@
     overflow-x: scroll;
     scrollbar-width: none;
 }
+.default {
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    width: 100vw - 70px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.genre{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 100%;
+    width: 100vw - 70px;
+}
+.small-genre .mediarow-poster{
+    margin-top: 10px;
+    width: 170px;
+    height: 350px;
+}
+.small-genre .mediarow-poster img{
+    width: 170px;
+    height: 350px;
+}
 .large-v .mediarow-poster{
-    width: 500px;
-    height: 600px;
+    width: 360px;
+    height: 550px;
 }
 .large-v .mediarow-poster img{
     width: 400px;
-    height: 600px;
+    height: 550px;
 }
 .large-h .mediarow-poster{
-    width: 780px;
+    width: 750px;
     height: 394px;
 }
 .large-h .mediarow-poster img{
-    width: 700px;
+    width: 780px;
     height: 394px;
 }
 .small-v .mediarow-poster{
-    width: 185px;
-    height: 360px;
+    width: 240px;
+    height: 370px;
 }
 .small-v .mediarow-poster img{
     width: 240px;
-    height: 360px;
+    height: 370px;
 }
 .small-h .mediarow-poster{
-    width: 342px;
+    width: 380px;
     height: 253px;
 }
 .small-h .mediarow-poster img{
-    width: 450px;
+    width: 380px;
     height: 253px;
 }
 
@@ -59,6 +84,75 @@
 .mediarow-posters::-webkit-scrollbar{
     display: none;
 }
+.default::-webkit-scrollbar{
+    display: none;
+}
+
+.mediarow-poster .mediarow-poster-bg{
+    background: linear-gradient(180deg, rgb(48,123,207,0)60%, rgb(48,123,207,0.5)80%, rgba(62,185,62,.7) 100%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+}
+.mediarow-poster .mediarow-poster-bg:hover{
+    opacity: 1;
+}
+.mediarow-poster .mediarow-poster-title{
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+.media-row-poster .media-row-poster-overview{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+.mediarow-poster .mediarow-poster-buttons{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+.mediarow-poster .mediarow-poster-play-btn{
+    font-size: 24px;
+    background: linear-gradient(328deg, rgba(94,158,255,1) 0%, rgb(48,123,207,0.5) 100%, rgba(62,185,62,1) 100%, rgba(0,0,0,1) 100%);
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px;
+    transition: background .3s ease-in-out;
+}
+.mediarow-poster-play-btn:hover{
+    background: linear-gradient(328deg, rgba(94,158,255,1) 0%, rgb(48,123,207,0.5) 100%, rgba(62,185,62,1) 100%, rgba(0,0,0,1) 100%);
+    color: white;
+    cursor: pointer;
+}
+.mediarow-poster .mediarow-poster-info-btn{
+    background: grey;
+    color: white; 
+    font-weight: 700;
+    font-size: .8rem;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
 .mediarow .mediarow-posters .skeleton-img{
     width: 200px;
     height: 300px;
@@ -93,4 +187,48 @@
         transform: skew(45deg) translate(300%);
 
     }
+}
+@media screen and (max-width: 440px) {
+    .small-genre .mediarow-poster{
+        margin-top: 10px;
+        width: 130px;
+        height: 250px;
+    }
+    .small-genre .mediarow-poster img{
+        width:130px;
+        height: 250px;
+    }
+    .large-v .mediarow-poster{
+        width: 400px;
+        height: 450px;
+    }
+    .large-v .mediarow-poster img{
+        width: 400px;
+        height: 450px;
+    }
+    .large-h .mediarow-poster{
+        width: 380px;
+        height: 253px;
+    }
+    .large-h .mediarow-poster img{
+        width: 380px;
+        height: 253px;
+    }
+    .small-v .mediarow-poster{
+        width: 240px;
+        height: 370px;
+    }
+    .small-v .mediarow-poster img{
+        width: 240px;
+        height: 370px;
+    }
+    .small-h .mediarow-poster{
+        width: 380px;
+        height: 253px;
+    }
+    .small-h .mediarow-poster img{
+        width: 380px;
+        height: 253px;
+    }
+    
 }
