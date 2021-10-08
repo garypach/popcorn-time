@@ -12,23 +12,52 @@
     min-width: 100%;
     width: 100vw - 70px;
     overflow-x: scroll;
+    scrollbar-width: none;
+}
+.large-v .mediarow-poster{
+    width: 500px;
+    height: 600px;
+}
+.large-v .mediarow-poster img{
+    width: 400px;
+    height: 600px;
+}
+.large-h .mediarow-poster{
+    width: 780px;
+    height: 394px;
+}
+.large-h .mediarow-poster img{
+    width: 700px;
+    height: 394px;
+}
+.small-v .mediarow-poster{
+    width: 185px;
+    height: 360px;
+}
+.small-v .mediarow-poster img{
+    width: 240px;
+    height: 360px;
+}
+.small-h .mediarow-poster{
+    width: 342px;
+    height: 253px;
+}
+.small-h .mediarow-poster img{
+    width: 450px;
+    height: 253px;
 }
 
-.mediarow-posters::-webkit-scrollbar{
-    display: none;
-}
 .mediarow .mediarow-poster{
    position: relative;
    margin-right: 30px;
-   min-width: 200px;
-   height: 253px;
 }
 .mediarow .mediarow-poster img{
-    width: 400px;
-    height: 253px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     position: relative;
+}
+.mediarow-posters::-webkit-scrollbar{
+    display: none;
 }
 .mediarow .mediarow-posters .skeleton-img{
     width: 200px;

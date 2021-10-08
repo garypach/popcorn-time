@@ -38,24 +38,25 @@ const MediaRow = (props) =>
     }, [props.endpoint])
   
 
-    const showPoster = () => {
+    const showPoster = (size) => {
         if(loadingData){
             return loopposter((<Skeleton/>),10) 
         }else{
             return (
                   media.map(mediaresult => (
-                    <Poster mediaData={mediaresult} mediatype={mediaresult.first_air_date ? "tv" : "movie"} key={mediaresult.id}/>
+                    <Poster mediaData={mediaresult} size = { size } mediatype={mediaresult.first_air_date ? "tv" : "movie"} key={mediaresult.id}/>
                   ))
               );
         }
     
     };
     
+
    return(
-       <div className="mediarow">
+       <div className={`mediarow ${props.imgSize}`}>
            <h3 className="mediarow-title">{props.title}</h3>
            <div className="mediarow-posters">
-               {showPoster()}
+               {showPoster(props.imgSize)}
             </div>
            
        </div>
@@ -63,14 +64,28 @@ const MediaRow = (props) =>
 }
 
 const Poster = (props) => {
+    const posterSize = (size)=>{
+        if(size === 'large-v'){
+            return '500';
+        }
+        if(size === 'small-v'){
+            return '185';
+        }
+        if(size === 'large-h'){
+            return '780';
+        }
+        if(size === 'small-h'){
+            return '342';
+        }
+    };
     return(
         <Link href={`/${props.mediatype}/${props.mediaData.id}`}>
               <a>
   <div className="mediarow-poster">
                 <Image 
-                src={`https://image.tmdb.org/t/p/original${props.mediaData.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w${posterSize(props.size)}${props.mediaData.poster_path}`}
                 alt="poster"
-                width="100%"
+                width={`${posterSize(props.size)}px`}
                 height="100%"
                 ></Image>
         </div>

@@ -58,7 +58,7 @@ export default function SingleMediaPage(props) {
        <CastInfo endpoint={`${props.query.mediatype}/${props.query.id}/credits`}/>
        </LazyLoad> 
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
-       <MediaRow title="Simalar To This" endpoint = {`${props.query.mediatype}/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
+       <MediaRow imgSize = 'small-v' title="Simalar To This" endpoint = {`${props.query.mediatype}/${props.query.id}/similar?&language=en-US&sort_by=popularity.desc&include_video=true`}/>
        </LazyLoad> 
     </MainLayout>
   )

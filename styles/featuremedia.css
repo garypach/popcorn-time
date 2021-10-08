@@ -1,6 +1,6 @@
 .featured-media{
     width: 100%;
-    min-height: 600px;
+    height: 700px;
     position: relative;
     overflow: hidden;
 }
