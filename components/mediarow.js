@@ -7,6 +7,7 @@ import Link from "next/link"
 import { loopposter } from "./util/utilityfunctions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import PropTypes from 'prop-types'
 
 const MediaRow = (props) =>
 {
@@ -116,4 +117,22 @@ const Skeleton = () => {
     )
 }
 
+
+
+
+MediaRow.propTypes = {
+    page:PropTypes.oneOf(["default","genre"]),
+    title: PropTypes.string,
+    imgSize: PropTypes.oneOf(['small-v','small-h','large-v','large-h']),
+    endpoint:PropTypes.string,
+}
+
+MediaRow.defaultProps ={
+    mediatype:'movie',
+    page:"default",
+    title:"Movies",
+    imgSize:"small-v",
+    endpoint:"trending/all/day??&language=en-US&sort_by=popularity.desc&include_video=true"
+
+}
 export default MediaRow

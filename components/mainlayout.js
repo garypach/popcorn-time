@@ -1,4 +1,5 @@
 import Header from "./header"
+import PropTypes from 'prop-types'
 const MainLayout = (props) =>
 {
    return(<div style={{ background: 'rgb(48,123,207)',
