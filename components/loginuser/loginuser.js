@@ -23,7 +23,7 @@ const LoginUser = () => {
   const router = useRouter();
   const [loadingUsers, setLoadingUsers] = useState(false)
   let users = ls('users') !== null ? ls('users') : []
-  let hasMounted = useMounted();
+  const {hasMounted} = useMounted();
 
   useEffect(() => {
     if(users < 1) {

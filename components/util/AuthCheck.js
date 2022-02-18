@@ -6,7 +6,7 @@ import { useMounted } from "./useMounted";
 
 const AuthCheck = (component) => {
   const router = useRouter();
-  const hasMounted = useMounted();
+  const {hasMounted} = useMounted();
   let activeUID = ls('activeUID');
   let users = ls('users') !== null ? ls('users') : [];
 
