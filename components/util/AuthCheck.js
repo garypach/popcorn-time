@@ -17,7 +17,7 @@ const AuthCheck = (component) => {
     if( activeUID === null || users.length < 1) {
       router.push('/login')
     }
-  }, [])
+  }, [users.length, activeUID,router])
 
   if(users.length >= 1 && activeUID  !== null) {
     return hasMounted ? (component) :''
