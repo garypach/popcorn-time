@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { v4 } from 'uuid';
 import ls from 'local-storage';
-import LoginUser from "../components/loginuser/LoginUser";
+import LoginUser from "../components/LoginUser";
 
 export default function Login(props) {
   

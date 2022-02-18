@@ -1,4 +1,4 @@
-import {useStateContext} from '../Provider'
+import {useStateContext} from './Provider'
 import ls from 'local-storage'
 import {v4} from 'uuid'
 import { useRouter } from 'next/router'
