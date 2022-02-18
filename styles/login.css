@@ -1,0 +1,67 @@
+.login-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+
+.login-user .login-user__top{
+    margin-bottom: 24px;
+    text-align: center;
+}
+.login-user .login-user__top .login-user__title {
+    font-size: 4vw;
+    text-align: center;
+}
+
+.login-user .login-user__form{
+    display: flex;
+    align-items: center;
+}
+.login-user .login-user__profile {
+   margin-left: 24px;
+}
+
+.login-user .login-user__profile img{
+    white-space: nowrap;
+    width: 8vw;
+    min-width: 80px;
+    max-width: 180px;
+    border-radius: 50%;
+}
+
+.login-user .login-user__profile .login-user__user-name{
+    font-size: 1.5vw;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.login-user .login-user__form {
+    display: flex;
+    align-items: baseline;
+
+}
+.login-user .login-user__form .login-user__buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+   
+}
+.login-user .login-user__form svg{
+    white-space: nowrap;
+    width: 8vw;
+    min-width: 80px;
+    max-width: 180px;
+}
+.login-user .login-user__form .login-user__buttons button{
+   border: none;
+   background-color: transparent;
+   color: white;
+   padding: 0;
+   margin: 0;
+   margin-top: 12px;
+   font-size: 1.5vw;
+}

@@ -1,0 +1,80 @@
+.create-user-cont {
+  background-color: rgb(31, 31, 31);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.create-user-cont .create-user__top{
+    margin-bottom: 24px;
+}
+.create-user-cont .create-user__top .create-user__title {
+    font-size: 4vw;
+}
+
+.create-user-cont .create-user__form {
+  display: flex;
+  align-items: center;
+}
+.create-user-cont .create-user__form img {
+  white-space: nowrap;
+  margin-right: 1.5vw;
+  width: 8vw;
+  min-width: 80px;
+  max-width: 180px;
+  border-radius: 12px;
+}
+
+.create-user-cont .create-user__form input[type="text"] {
+  width: 18em;
+  height: 2em;
+  background: #666;
+  border: 1px solid transparent;
+  margin: 0 0.8em 0 0;
+  padding: 0.2em 0.6em;
+  color: #fff;
+  font-size: 1.3vw;
+  box-sizing: border-box;
+  text-indent: 0.1vw;
+}
+
+.create-user-cont .create-user__form .create-user__input-group{
+    margin-left: 24px;
+}
+
+.create-user__buttons{
+    display: flex;
+    align-items: center;
+}
+
+.create-user__cancel{
+    margin: 2em 0 1em 0;
+  margin-right: 0px;
+font-size: 1.2vw;
+border: 1px solid grey;
+color: grey;
+padding: .5em 1.5em;
+letter-spacing: 2px;
+cursor: pointer;
+background-color: transparent;
+}
+
+.create-buttons{
+    display: block;
+margin: 2em 0 1em 0;
+  margin-right: 0px;
+font-size: 1.2vw;
+border: 1px solid grey;
+color: grey;
+padding: .5em 1.5em;
+letter-spacing: 2px;
+cursor: pointer;
+background-color: transparent;
+}
+
+.create-buttons__preferred{
+    background: #fff;
+color: #000;
+border: 1px solid #fff;
+font-weight: 700;
+margin-right: 24px;
+}
