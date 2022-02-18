@@ -1,4 +1,4 @@
-import CreateUser from "../components/createuser/createuser";
+import CreateUser from "../components/createuser/CreateUser";
 
 export default function Create() {
   return (

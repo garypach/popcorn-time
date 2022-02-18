@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ls from "local-storage";
-import { useMounted } from "./useMounted";
+import { useMounted } from "./util/useMounted";
 
 
 const AuthCheck = (component) => {

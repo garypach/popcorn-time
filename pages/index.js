@@ -8,7 +8,7 @@ import Home from '../components/home'
 import FeaturedVideo from '../components/featured'
 import MainLayout from '../components/mainlayout'
 import Link from 'next/link'
-import AuthCheck from '../components/util/authcheck'
+import AuthCheck from '../components/AuthCheck'
 
 export default function Index(props) {
 

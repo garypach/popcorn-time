@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {useState, useEffect} from 'react';
-import { useStateContext } from '../provider/provider';
+import { useStateContext } from '../Provider';
 import { useRouter } from 'next/router';
 import ls from 'local-storage';
 import { useMounted } from '../util/useMounted';

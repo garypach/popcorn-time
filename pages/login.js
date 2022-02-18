@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import CreateUser from "../components/createuser/createuser";
+import CreateUser from "../components/createuser/CreateUser";
 import { v4 } from 'uuid';
 import ls from 'local-storage';
 import { color } from "gulp-cli/lib/shared/cli-options";
-import LoginUser from "../components/loginuser/loginuser";
+import LoginUser from "../components/loginuser/LoginUser";
 
 export default function Login(props) {
   
