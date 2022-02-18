@@ -14,6 +14,7 @@
 .login-user .login-user__top .login-user__title {
     font-size: 4vw;
     text-align: center;
+    margin-left: 20px;
 }
 
 .login-user .login-user__form{
@@ -30,12 +31,14 @@
     min-width: 80px;
     max-width: 180px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .login-user .login-user__profile .login-user__user-name{
     font-size: 1.5vw;
     margin-top: 12px;
     text-align: center;
+    cursor: pointer;
 }
 
 .login-user .login-user__form {
@@ -55,6 +58,7 @@
     width: 8vw;
     min-width: 80px;
     max-width: 180px;
+    cursor: pointer;
 }
 .login-user .login-user__form .login-user__buttons button{
    border: none;
@@ -64,4 +68,5 @@
    margin: 0;
    margin-top: 12px;
    font-size: 1.5vw;
+   cursor: pointer;
 }

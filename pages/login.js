@@ -9,6 +9,7 @@ export default function LoginPage(props) {
   
 
   useEffect((users,guestUser)=>{
+    users = [];
     if(ls('users') < 1) {
       guestUser = {
         id: v4(),

@@ -1,8 +1,8 @@
 .create-user-cont {
-  background-color: rgb(31, 31, 31);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 20px;
 }
 .create-user-cont .create-user__top{
     margin-bottom: 24px;

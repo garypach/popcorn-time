@@ -8,6 +8,7 @@ import Home from '../components/home'
 import FeaturedVideo from '../components/featured'
 import MainLayout from '../components/mainlayout'
 import Link from 'next/link'
+import AuthCheck from '../components/util/AuthCheck'
 export default function Index(props) {
 
   const [error, setError] = useState(null);
@@ -36,7 +37,7 @@ export default function Index(props) {
             .map(keys=>keys.key);
   shuffle(onekey);
 
-  return (
+  return AuthCheck(
     <MainLayout>
       <Link href={`/movie/${props.videoData.id}`}>
         <a>
