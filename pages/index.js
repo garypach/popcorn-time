@@ -38,7 +38,7 @@ export default function Index(props) {
             .map(keys=>keys.key);
   shuffle(onekey);
 
-  return AuthCheck(
+  return (
     <MainLayout>
       <Link href={`/movie/${props.videoData.id}`}>
         <a>

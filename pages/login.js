@@ -5,7 +5,7 @@ import ls from 'local-storage';
 import { color } from "gulp-cli/lib/shared/cli-options";
 import LoginUser from "../components/Login/LoginUser";
 
-export default function LoginPage(props) {
+export default function Login(props) {
   
 
   useEffect((users,guestUser)=>{
