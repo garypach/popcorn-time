@@ -1,5 +1,5 @@
 import '../styles/styles.css'
-import {Provider} from '../components/Provider/Provider'
+import {Provider} from '../components/provider/provider'
 function MyApp({ Component, pageProps }) {
   return (
   <Provider>

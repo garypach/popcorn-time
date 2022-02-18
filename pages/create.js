@@ -1,6 +1,6 @@
-import CreateUser from "../components/CreateProfile/CreateUser";
+import CreateUser from "../components/createuser/createuser";
 
-export default function CreatePage() {
+export default function Create() {
   return (
    <>
     <CreateUser/>

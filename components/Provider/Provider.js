@@ -18,7 +18,6 @@ export function Provider({children}){
     value={{
       user,
       createUserAction,
- 
     }}>
       {children}
     </StateContext.Provider>
