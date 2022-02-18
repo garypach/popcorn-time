@@ -9,6 +9,7 @@ import FeaturedVideo from '../components/featured'
 import MainLayout from '../components/mainlayout'
 import Link from 'next/link'
 import AuthCheck from '../components/util/AuthCheck'
+
 export default function Index(props) {
 
   const [error, setError] = useState(null);

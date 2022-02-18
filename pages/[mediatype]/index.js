@@ -14,7 +14,6 @@ import { shuffle } from '../../components/util/utilityfunctions'
 
 export default function Index(props){
   const router = useRouter()
-  const { id } = router.query
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);

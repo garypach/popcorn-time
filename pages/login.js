@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import CreateUser from "../components/CreateProfile/CreateUser";
-import Login from "../components/Login/Login";
 import { v4 } from 'uuid';
 import ls from 'local-storage';
 import { color } from "gulp-cli/lib/shared/cli-options";
+import LoginUser from "../components/Login/LoginUser";
 
 export default function LoginPage(props) {
   
@@ -26,7 +26,7 @@ export default function LoginPage(props) {
 
   return (
     <>
-        <Login/>
+        <LoginUser/>
         {/* <CreateUser/> */}
     </>
     

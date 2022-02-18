@@ -5,10 +5,7 @@ import { useRouter } from 'next/router';
 import ls from 'local-storage';
 import { useMounted } from '../util/useMounted';
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-
-const Login = () => {
+const LoginUser = () => {
   const loginStyle = {
     background:'rgb(31, 31, 31)',
     height:'100vh',
@@ -81,4 +78,4 @@ const Login = () => {
      </div>
   )
 }
-export default Login;
+export default LoginUser;
