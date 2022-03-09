@@ -45,7 +45,7 @@ export default function Index(props) {
     <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.videoData.title} overview={props.videoData.overview}/>
     </a>
     </Link>
-    <Home/>
+    <Home />
     </MainLayout>
   )
 }

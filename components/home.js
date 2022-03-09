@@ -5,8 +5,8 @@ import Skeleton from '../components/skeleton'
 
 const Home = (props) => {
   return (
-    <>
-       <LazyLoad height={200} offset={200} placeholder={<Skeleton/>}>
+    <div style={{ padding: '35px 0'}}>
+    <LazyLoad height={200} offset={200} placeholder={<Skeleton/>}>
        <MediaRow page="default" imgSize = 'large-v' title="What's Trending?" endpoint ="trending/all/day??&language=en-US&sort_by=popularity.desc&include_video=true"/>
        </LazyLoad>
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    
@@ -27,7 +27,7 @@ const Home = (props) => {
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>
        <MediaRow page="default" imgSize = "small-v" title="Animated TV Shows" endpoint ="discover/tv?&language=en-US&with_genres=16&sort_by=popularity.desc&include_video=true&primary_release_year=2021"/>
        </LazyLoad>
-       </>
+    </div>
   );
 };
 

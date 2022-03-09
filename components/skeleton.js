@@ -11,16 +11,18 @@ const Skeleton = (props) =>
     };
     
    return(
-       <div className="mediarow">
-           <h3 className="mediarow-title">{props.title}</h3>
-           <div className="mediarow-posters">
-               {loopposter((<div className="poster-skeleton">
-            <div className="skeleton-img"></div>
-        </div>),10)}
-            </div>
-           
-       </div>
+    <div className={`posters-container`}>
+    <ul className={`posters-wrapper`}>
+    {loopposter((
+    <li>
+        <div  className="skeleton-img">
+        </div>
+    </li>
+   ),10)}
+    </ul>
+</div>
    )
 }
+
 
 export default Skeleton

@@ -46,12 +46,27 @@ export default function Index(props){
   shuffle(onekey);
   
 
+
+
   const showRandomMedia = () => {
-    return props.mediaData.map((item, index)=>(
-      <LazyLoad height={200} offset={100} placeholder={<Skeleton/>} key = {index}>
-       <MediaRow page="genre" imgSize="small-genre"title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=${index+1}`}/>
+    return (
+      <>
+       <LazyLoad height={100} offset={100} placeholder={<Skeleton/>} >
+       <MediaRow page="default" imgSize="small-h"title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=1`}/>
        </LazyLoad>
-    ))
+       <LazyLoad height={100} offset={100} placeholder={<Skeleton/>} >
+       <MediaRow page="default" imgSize="small-genre"title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=2`}/>
+       </LazyLoad>
+       <LazyLoad height={100} offset={100} placeholder={<Skeleton/>}>
+       <MediaRow page="default" imgSize="small-genre"title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=3`}/>
+       </LazyLoad>
+       <LazyLoad height={100} offset={100} placeholder={<Skeleton/>}>
+       <MediaRow page="default" imgSize="small-genre"title={``} endpoint ={`discover/${props.query.mediatype}?with_genres=${props.query.genre_id}&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&page=4`}/>
+       </LazyLoad>
+      </>
+     
+       
+    )
   }
   
   return (
