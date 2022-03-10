@@ -1,0 +1,15 @@
+.browser-menu-cont{
+    font-size: 3vw;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.browser-menu-cont.default .fa-caret-down{
+    font-size: 5vw;
+    margin-left: 5px;
+}
+.browser-menu-cont.default{
+    background: transparent;
+}
