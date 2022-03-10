@@ -10,13 +10,14 @@
     display: flex;
     overflow-x: scroll;
     scrollbar-width: none;
-    min-height: 400px;
+    min-height: 300px;
 }
 
 .cast-container .cast-wrapper .cast{
     width: 300px;
-    height: 300px;
+    min-height: 300px;
     margin: 0 10px 0 0;
+    background-color: black;
 }
 
 .cast-container .cast-wrapper .cast img{
@@ -24,7 +25,7 @@
     width: 100%;
     max-height: 100%;
     min-width: 200px;
-    height: 300px;
+    min-height: 300px;
 }
 
 
@@ -67,17 +68,22 @@
 
     }
 }
+.cast-info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 120px;
+    padding: 20px;
+}
 .cast-char{
     border: black 1px solid;
     background-color: black;
     font-weight: 700;
     color: white;
-    padding: 10px;
 }
 .cast-name{
     border: black 1px solid;
     background-color: black;
     font-weight: 700;
     color: white;
-    padding: 10px;
 }
