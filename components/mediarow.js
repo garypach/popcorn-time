@@ -8,6 +8,7 @@ import { loopposter } from "./util/utilityfunctions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const MediaRow = (props) => {
   const [error, setError] = useState(null);
@@ -58,9 +59,9 @@ const MediaRow = (props) => {
         <div className="posters-container-title">
         <h3>{props.title}</h3>
         </div>
-      <ul className={`posters-wrapper`}>
+        <ul className={`posters-wrapper`}>
         {showPoster(props.imgSize)}
-      </ul>
+        </ul>
     </div>
   );
 };
@@ -81,10 +82,9 @@ const Poster = (props) => {
 //     }
 //   };
   return (
-   
-        <li>
-             <Link href={`/${props.mediatype}/${props.mediaData.id}`}>
-      <a className="poster">
+    <Link href={`/${props.mediatype}/${props.mediaData.id}`} key={props.key}>
+        <a>
+        <li className="poster">
           <Image
             src={`https://image.tmdb.org/t/p/w500${
               props.mediaData.poster_path
@@ -93,20 +93,26 @@ const Poster = (props) => {
             width={350}
             height={200}
           ></Image>
-          </a>
-        
-         </Link>
-          {/* <div className="mediarow-poster-bg">
-            <div className="mediarow__container">
-              <div className="mediarow-poster-title">{props.title}</div>
-              <div className="mediarow-poster-buttons">
-                <div className="mediarow-poster-play-btn">
+          <div className="image-overlay"></div>       
+          <div className="poster-hover-cont">
+            <div className="poster-hover-wrapper">
+              <div className="poster-hover-title">{props.mediaData.title ? props.mediaData.title : props.mediaData.name}</div>
+
+                <div className="poster-hover-buttons">
+                <div className="play-btn">
                   <FontAwesomeIcon icon={faPlay} />
                 </div>
+                <div className="add-btn">
+                  <FontAwesomeIcon icon={faPlus} />
+                </div>
               </div>
+             
             </div>
-          </div> */}
+          </div>
         </li>
+        </a>
+        
+        </Link>
      
   );
 };

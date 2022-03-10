@@ -24,9 +24,6 @@ const Home = (props) => {
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>
        <MediaRow page="default" imgSize = "small-v" title="Animated Movies" endpoint ="discover/movie?&language=en-US&with_genres=16&sort_by=popularity.desc&include_video=true&primary_release_year=2021"/>
        </LazyLoad>
-       <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>
-       <MediaRow page="default" imgSize = "small-v" title="Animated TV Shows" endpoint ="discover/tv?&language=en-US&with_genres=16&sort_by=popularity.desc&include_video=true&primary_release_year=2021"/>
-       </LazyLoad>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import { shuffle } from '../../components/util/utilityfunctions'
 import LazyLoad from 'react-lazyload'
 import Skeleton from '../../components/skeleton'
 import MediaDetails from '../../components/mediadetails'
+import FeaturedMovie from '../../components/featuredMovie'
 
 export default function SingleMediaPage(props) {
     const router = useRouter()
@@ -48,10 +49,9 @@ export default function SingleMediaPage(props) {
     shuffle(onekey);
     return (
     <MainLayout>
-        <h1>{media.title}</h1>
-       <FeaturedVideo 
+       <FeaturedMovie
        mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} 
-       title={""}
+       title={media.title}
        />
        <MediaDetails imgSize="large-v" endpoint={`${props.query.mediatype}/${props.query.id}`}/>
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    

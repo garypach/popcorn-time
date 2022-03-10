@@ -53,11 +53,13 @@ const CastInfo= (props) =>
   };
 
     return(
-      <div className="mediarow small-c">
-           <h3 className="mediarow-title">{props.title}</h3>
-           <div className="mediarow-posters">
+      <div className="cast-container">
+    <div className="cast-container-title">
+        <h3>Cast</h3>
+        </div>           
+        <ul className={`cast-wrapper`}>
                {showCast()}
-            </div>
+            </ul>
        </div>
   )
 }
@@ -68,35 +70,33 @@ const Cast = (props) => {
          return <Skeleton/>
       }
       else{
-         return  (<Image
+         return  (
+         <Image
          src={`https://image.tmdb.org/t/p/original${props.mediaData.profile_path}`}
          alt="poster"
-         width="100%"
-         height="100%"
+         width={300}
+         height={300}
        ></Image>)
       }
    }
  
   return (
-    <a>
-      <div className="mediarow-poster small-v">
-      {castImage()}
-      <div className="mediarow-cast-bg">
-        <div className="mediarow-cast-container">
-          <div className="mediarow-cast-char">{props.character}</div>
-          <div className="mediarow-cast-name">{props.castName}</div>
+    <li className="cast">
+    {castImage()}
+    <div className="image-overlay"></div>       
+    <div className="cast-info">
+          <div className="cast-char">{props.character}</div>
+          <div className="cast-name">{props.castName}</div>
         </div>
-        </div>
-      </div>
-    </a>
+    </li>
   );
 };
 
 
 const Skeleton = () => {
    return(
-       <div className="poster-skeleton">
-           <div className="skeleton-img"></div>
+       <div className="cast-skeleton">
+           <div className="cast-skeleton-img"></div>
        </div>
    )
 }
