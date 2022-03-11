@@ -22,7 +22,8 @@
     background: black;
 }
 .top-header-logo{
-    font-size: 5vw;
+    font-size: 18px;
+    
     margin: auto 15px;
 }
 
@@ -50,5 +51,9 @@
     .browser-menu-cont.top-header-browserMenu{
         display: block;
         margin-left: 5px;
+    }
+    .top-header-logo{
+        font-size: 5vw;
+        margin: auto 15px;
     }
 }

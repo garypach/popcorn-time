@@ -14,7 +14,7 @@ const FeaturedVideo = (props) =>
            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen></iframe>
             <div className="featured-media-bg">
-        <div className="featured-media__container">
+        <div className="featured-media-container">
           <div className="featured-media-title">{props.title}</div>
           <div className="featured-media-overview">{props.overview}</div>
           <div className="featured-media-buttons">
