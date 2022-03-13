@@ -36,7 +36,7 @@ const Header = (props) =>
            </Link>
             </div>
 
-            <BrowserMenu class="top-header-browserMenu" menuTitle="Browse" type="default">
+            <BrowserMenu class="top-header-browserMenu" menuTitle="Browse">
                 <DropDownMenu>
                     <MenuItem linkTitle="Home" linkLocation="/"/>
                     <MenuItem linkTitle="Movies" linkLocation="/movie"/>

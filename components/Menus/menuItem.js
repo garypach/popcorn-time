@@ -6,7 +6,7 @@ function MenuItem(props){
         <a>
             {props.linkTitle}
         </a>
-    </Link>
+        </Link>
     )
 }
 

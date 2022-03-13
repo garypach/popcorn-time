@@ -52,11 +52,27 @@ iframe:hover{
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
+
 .featured-media .featured-media-buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.featured-media.featured-movie .featured-media-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.featured-media.featured-movie .featured-media-buttons{
    
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 .featured-media .featured-media-play-btn{
     font-size: 24px;

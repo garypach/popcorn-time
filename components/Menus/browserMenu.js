@@ -10,7 +10,7 @@ function BrowserMenu(props) {
 
         //class: any extra class
         // type: background transparent or black border white.."defualt" or "filled"
-        <div className={`browser-menu-cont ${props.class} ${props.type}`} onClick={()=>setOpenMenu(!openMenu)}>
+        <div className={`browser-menu-cont ${props.class}`} onClick={()=>setOpenMenu(!openMenu)} >
             {props.menuTitle}
             <FontAwesomeIcon  icon={faCaretDown} />
             {openMenu && props.children}

@@ -40,7 +40,7 @@
     display: none;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 640px) {
     .top-header-links{
         display: none;
     }
@@ -50,10 +50,35 @@
     }
     .browser-menu-cont.top-header-browserMenu{
         display: block;
+        display: flex;
         margin-left: 5px;
     }
     .top-header-logo{
-        font-size: 5vw;
+        font-size: 14px;
         margin: auto 15px;
+    }
+    .top-header .top-header-browserMenu {
+        font-size: 14px;
+    }
+    .top-header .top-header-browserMenu .fa-caret-down {
+        font-size: 18px;
+    }
+    .top-header .top-header-browserMenu .dropdown-menu-cont{
+        top: 21px;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 99;
+        overflow-y: scroll;
+        padding: 15px 20px;
+        min-width: 120px;
+        max-height: 250px;
+    }
+    .top-header .top-header-browserMenu .dropdown-menu-cont a{
+        margin-bottom: 15px;
+    }
+    .top-header .top-header-browserMenu .dropdown-menu-cont a:last-child{
+        margin-bottom: 0px;
     }
 }

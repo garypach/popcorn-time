@@ -73,7 +73,7 @@ export default function Index(props){
     <MainLayout>
        <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.genreData.name ? props.genreData.name : props.genreData.title} overview={props.genreData.overview}/>
        <GenreNav mediaType={props.query.mediatype} genreData={props.mediaData}/>
-       <p className="genreHeading">{props.genreData.name ? "TV Shows" : "Movies"}</p>
+       <p className="genreheading">{props.genreData.name ? "TV Shows" : "Movies"}</p>
        {showRandomMedia()}
     </MainLayout>
   )

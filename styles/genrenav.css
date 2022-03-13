@@ -1,19 +1,94 @@
-
-.genre-nav{
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
+.genre-nav-cont{
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.genre-nav-cont .genre-nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 70%;
+}
+.genre-nav .genres{
+    display: none;
+}
+
+.genre-nav ul{
+    display: flex;
+    width: 100%;
+    border-bottom: 3px solid white;
     justify-content: space-between;
-    padding: 50px;
-    position: sticky;
+    padding-bottom: 15px;
+    margin-top: 30px;
+
 }
-.genre-nav li{
-    color: white;
-    padding: 10px;
+.genre-nav ul li{
+   font-size: 1rem;
+   margin-right: 25px;
+   color: white;
 }
-.genreHeading{
-    font-size: 2rem;
-    font-weight: 500;
-    margin-left: 50px;
+
+.genre-nav .view-more .dropdown-menu-cont{
+    top: 31px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 99;
+    overflow-y: scroll;
+    padding: 10px 20px;
+    min-width: 200px;
+    max-height: 200px;
+}
+
+.genre-nav .view-more .dropdown-menu-cont a{
+    margin-bottom: 15px;
+}
+
+.genreheading{
+    margin-top: 25px;
+    font-size: 1.5rem;
+    margin-left: 25px;
+}
+
+@media (max-width:1024px) {
+    .genre-nav-cont{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .genre-nav-cont .genre-nav{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: 100%;
+    }
+
+    .genre-nav ul{
+       display: none;
+    }
+    .genre-nav .genres{
+        display: flex;
+        margin-left: 25px;
+        margin-top: 20px;
+    }
+    .genre-nav .genres .dropdown-menu-cont{
+        top: 31px;
+        left:-25px;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 99;
+        overflow-y: scroll;
+        padding: 10px 20px;
+        min-width: 320px;
+        max-height: 250px;
+    }
+    .genre-nav .genres .dropdown-menu-cont a{
+        margin-bottom: 15px;
+    }
 }

@@ -5,7 +5,7 @@ const FeaturedMovie = (props) =>
 {
    return(
 
-       <div className="featured-media">
+       <div className="featured-media featured-movie">
            <iframe 
            className="video"
            width="100%" 
