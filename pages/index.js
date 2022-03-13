@@ -23,7 +23,6 @@ export default function Index(props) {
         (result) => {
           setIsLoaded(true);
           setMedia(result.results);
-          console.log(result)
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -54,7 +53,6 @@ export async function getServerSideProps() {
   let videoData;
   try{
     videoData = await axios.get(`https://api.themoviedb.org/3/discover/movie?&language=en-US&sort_by=popularity.desc&include_video=true&primary_release_year=2021&api_key=${api_key}`);
-    console.log(videoData)
 
   }catch(error){
     console.log('error');

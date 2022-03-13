@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import api_key from "../api";
 import { shuffle } from "./util/utilityfunctions";
 import Link from "next/link";
 import { loopposter } from "./util/utilityfunctions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faPlay } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,7 +15,43 @@ const MediaRow = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadingData, setLoadingData] = useState(true);
   const [media, setMedia] = useState([]);
+  const { width } = useWindowDimensions();
+  //window width
+  function getWindowDimensions() {
+    const { innerWidth: width} = window;
+    return {
+      width   
+     };
+  }
+  function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+    useEffect(() => {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+  
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    return windowDimensions;
+  }
+  //scroll left and right with buttons
+  const ref = useRef(null);
+  const scroll = (scrollMobile,scrollTablet,scrollDesktop) => {
+    let distance = ref.current.getBoundingClientRect().x - 200
+    if(width < 440){
+      ref.current.scrollLeft += scrollMobile + distance;
+    }
+    else if(width > 440 && width < 768){
+      ref.current.scrollLeft += scrollTablet + distance;
 
+    }
+    else{
+      ref.current.scrollLeft += scrollDesktop + distance;
+    }
+  };
   // Note: the empty deps array [] means
   // this useEffect will run once
   // similar to componentDidMount()
@@ -27,7 +63,6 @@ const MediaRow = (props) => {
           setLoadingData(false);
           setIsLoaded(true);
           setMedia(shuffle(result.results));
-          console.log(result);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -59,9 +94,14 @@ const MediaRow = (props) => {
         <div className="posters-container-title">
         <h3>{props.title}</h3>
         </div>
-        <ul className={`posters-wrapper`}>
+        <div className="posters-list-parent" >
+        <ul className={`posters-wrapper`} ref={ref}>
         {showPoster(props.imgSize)}
         </ul>
+        <button className="poster-left" onClick={() => scroll(-155,-155,-1050)}><FontAwesomeIcon icon={faChevronLeft} /></button>
+        <button className="poster-right" onClick={() => scroll(520,520,1050)}><FontAwesomeIcon icon={faChevronRight} /></button>
+        </div>
+       
     </div>
   );
 };

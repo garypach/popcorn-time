@@ -22,7 +22,7 @@ const GenreNav = (props) =>
 
        <ul>
         <GenreList genreData={props.genreData} mediaType={props.mediaType}/>
-        <BrowserMenu class="view-more" menuTitle='View More'>
+        <BrowserMenu class="view-more" menuTitle='View More' key="genremenu">
         <DropDownMenu>
          { props.genreData.slice(6).map((item) =>{
         return(
