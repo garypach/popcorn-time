@@ -1,10 +1,12 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import api_key from "../api";
 import { shuffle } from "./util/utilityfunctions";
 import Link from "next/link"
 import { loopposter } from "./util/utilityfunctions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -15,7 +17,43 @@ const CastInfo= (props) =>
     const [loadingData,setLoadingData] = useState(true);
     const [media,setMedia] = useState([]);
 
-
+    const { width } = useWindowDimensions();
+    //window width
+    function getWindowDimensions() {
+      const { innerWidth: width} = window;
+      return {
+        width   
+       };
+    }
+    function useWindowDimensions() {
+      const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+    
+      useEffect(() => {
+        function handleResize() {
+          setWindowDimensions(getWindowDimensions());
+        }
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+    
+      return windowDimensions;
+    }
+    //scroll left and right with buttons
+    const ref = useRef(null);
+    const scroll = (scrollMobile,scrollTablet,scrollDesktop) => {
+      let distance = ref.current.getBoundingClientRect().x - 200
+      if(width < 440){
+        ref.current.scrollLeft += scrollMobile + distance;
+      }
+      else if(width > 440 && width < 768){
+        ref.current.scrollLeft += scrollTablet + distance;
+  
+      }
+      else{
+        ref.current.scrollLeft += scrollDesktop + distance;
+      }
+    };
     // Note: the empty deps array [] means
     // this useEffect will run once
     // similar to componentDidMount()
@@ -57,9 +95,13 @@ const CastInfo= (props) =>
     <div className="cast-container-title">
         <h3>Cast</h3>
         </div>           
-        <ul className={`cast-wrapper`}>
-               {showCast()}
-            </ul>
+        <div className="cast-list-parent" >
+        <ul className={`cast-wrapper`} ref={ref}>
+        {showCast()}
+        </ul>
+        <button className="cast-left" onClick={() => scroll(-155,-155,-1050)}><FontAwesomeIcon icon={faChevronLeft} /></button>
+        <button className="cast-right" onClick={() => scroll(520,520,1050)}><FontAwesomeIcon icon={faChevronRight} /></button>
+        </div>
        </div>
   )
 }

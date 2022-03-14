@@ -13,11 +13,15 @@ export function Provider({children}){
     setUser(e.target.value);
   }
 
+  const[searchOpen,setSearchOpenAction] = useState(false)
+
   return(
     <StateContext.Provider
     value={{
       user,
       createUserAction,
+      searchOpen,
+      setSearchOpenAction,
     }}>
       {children}
     </StateContext.Provider>

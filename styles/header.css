@@ -40,6 +40,12 @@
     display: none;
 }
 
+.top-header .search-btn{
+    position: absolute;
+    cursor: pointer;
+    right: 10%;
+}
+
 @media screen and (max-width: 640px) {
     .top-header-links{
         display: none;
