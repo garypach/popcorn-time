@@ -1,0 +1,135 @@
+.my-list-posters-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    margin-top: 25px;
+
+}
+.my-list-posters-container .my-list-posters-list-parent{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.my-list-posters-container .my-list-posters-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;
+}
+
+.my-list-posters-container .my-list-posters-wrapper .my-list-poster{
+   
+    min-width: 350px;
+    min-height: 200px;
+    width: 350px;
+    height: 200px;
+    margin: 0 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    transition: .5s all ease-in-out;
+    margin-top: 25px;
+}
+
+.my-list-posters-container .my-list-posters-wrapper .my-list-poster img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+}
+
+.my-list-poster .image-overlay{
+    opacity: 0;
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    box-shadow: inset 0px 0px 100px black;
+    transition: .3s all ease-in-out;
+}
+.my-list-poster:hover .image-overlay {
+    opacity: 1;
+}
+
+
+
+.my-list-posters-container .my-list-posters-container-title{
+    font-weight: 500;
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.my-list-poster-hover-cont{
+    position: absolute;
+    width:  100%;
+    bottom: 0;
+    transition: .5s all ease-in-out;
+    z-index: 1;
+}
+
+.my-list-poster:hover .my-list-poster-hover-cont{
+    opacity: 1;
+}
+
+.my-list-poster-hover-cont .my-list-poster-hover-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+.my-list-poster-hover-title{
+    width: 65%;
+}
+.my-list-poster-hover-buttons{
+    font-size: 1rem;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    transition: 1s all ease-in-out;
+   
+
+}
+
+.play-btn{
+    border: 1px solid white;
+    height: fit-content;
+    border-radius: 50%;
+    padding: 10px;
+    transition: 1s all ease-in-out;
+    background: transparent;
+    
+}
+
+.play-btn:hover {
+    background: linear-gradient(328deg, rgba(94,158,255,1) 0%, rgb(48,123,207,0.5) 100%, rgba(62,185,62,1) 100%, rgba(0,0,0,1) 100%);
+
+
+}
+
+.remove-btn{
+    border: 1px solid white;
+    text-align: center;
+    height: fit-content;
+    border-radius: 50%;
+    padding: 11px;
+    padding-top: 10px;
+    transition: 1s all ease-in-out;
+    background: transparent;
+    cursor: pointer;
+  
+
+}
+.remove-btn:hover {
+    background: linear-gradient(328deg, rgba(94,158,255,1) 0%, rgb(48,123,207,0.5) 100%, rgba(62,185,62,1) 100%, rgba(0,0,0,1) 100%);
+}
+
+
+

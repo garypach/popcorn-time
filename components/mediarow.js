@@ -9,34 +9,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faPlay } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-
+import { useStateContext } from "./Provider";
+import useWindowDimensions from "./util/windowWidth";
 const MediaRow = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadingData, setLoadingData] = useState(true);
   const [media, setMedia] = useState([]);
   const { width } = useWindowDimensions();
-  //window width
-  function getWindowDimensions() {
-    const { innerWidth: width} = window;
-    return {
-      width   
-     };
-  }
-  function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-  
-    useEffect(() => {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-      }
-  
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-  
-    return windowDimensions;
-  }
+
   //scroll left and right with buttons
   const ref = useRef(null);
   const scroll = (scrollMobile,scrollTablet,scrollDesktop) => {
@@ -90,7 +71,7 @@ const MediaRow = (props) => {
   };
 
   return (
-    <div className={`posters-container`}>
+    <div className={`posters-container `}>
         <div className="posters-container-title">
         <h3>{props.title}</h3>
         </div>
@@ -101,12 +82,17 @@ const MediaRow = (props) => {
         <button className="poster-left" onClick={() => scroll(-155,-155,-1050)}><FontAwesomeIcon icon={faChevronLeft} /></button>
         <button className="poster-right" onClick={() => scroll(520,520,1050)}><FontAwesomeIcon icon={faChevronRight} /></button>
         </div>
-       
     </div>
   );
 };
 
 const Poster = (props) => {
+  const globalState = useStateContext();
+
+   //myList functions
+   const addToList =(props)=>{
+    globalState.addToList({id: props.mediaData.id, mediaType: props.mediatype })
+  }
 //   const posterSize = (size) => {
 //     if (size === "large-v") {
 //       return "500";
@@ -122,9 +108,10 @@ const Poster = (props) => {
 //     }
 //   };
   return (
-    <Link href={`/${props.mediatype}/${props.mediaData.id}`} key={props.key}>
-        <a>
+   
         <li className="poster">
+           <Link href={`/${props.mediatype}/${props.mediaData.id}`} key={props.key}>
+        <a>
           <Image
             src={`https://image.tmdb.org/t/p/w500${
               props.mediaData.poster_path
@@ -134,25 +121,34 @@ const Poster = (props) => {
             height={200}
           ></Image>
           <div className="image-overlay"></div>       
+          </a>
+        </Link>
           <div className="poster-hover-cont">
             <div className="poster-hover-wrapper">
-              <div className="poster-hover-title">{props.mediaData.title ? props.mediaData.title : props.mediaData.name}</div>
-
+            <Link href={`/${props.mediatype}/${props.mediaData.id}`} key={props.key}>
+                <a className="poster-hover-title">
+              <div >{props.mediaData.title ? props.mediaData.title : props.mediaData.name}</div>
+              </a>
+                  </Link>
                 <div className="poster-hover-buttons">
+                <Link href={`/${props.mediatype}/${props.mediaData.id}`} key={props.key}>
+                <a>
                 <div className="play-btn">
+           
                   <FontAwesomeIcon icon={faPlay} />
+                 
                 </div>
+                </a>
+                  </Link>
                 <div className="add-btn">
-                  <FontAwesomeIcon icon={faPlus} />
+                  <FontAwesomeIcon icon={faPlus} onClick={() =>{addToList(props)}}/>
                 </div>
               </div>
              
             </div>
           </div>
         </li>
-        </a>
-        
-        </Link>
+      
      
   );
 };

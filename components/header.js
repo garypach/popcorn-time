@@ -47,7 +47,7 @@ const Header = (props) => {
               <MenuItem linkTitle="Home" linkLocation="/" />
               <MenuItem linkTitle="Movies" linkLocation="/movie" />
               <MenuItem linkTitle="TV Shows" linkLocation="tv" />
-              <MenuItem linkTitle="My List" linkLocation="#" />
+              <MenuItem linkTitle="My List" linkLocation="/mylist" />
             </DropDownMenu>
           </BrowserMenu>
         </div>

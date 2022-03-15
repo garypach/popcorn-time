@@ -24,7 +24,6 @@ const SearchModal = (props) => {
         );
         setPopData(popData.data.results.filter((item, i) => i < 12));
         setShowResults(false);
-        console.log("popdata", popData.data.results);
       } catch (error) {
         console.log(error);
       }
