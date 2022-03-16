@@ -32,9 +32,13 @@ const  MyListComponent = (props) => {
   };
 
   return (
-    <div className={`my-list-posters-container `}>
+    <div className={`my-list-posters-container ${props.extraclass}`}>
         <div className="my-list-posters-container-title">
+        <Link href={"/mylist"}>
+        <a>
         <h3>My List</h3>
+        </a>
+        </Link>
         </div>
         <div className="my-list-posters-list-parent" >
         <ul className={`my-list-posters-wrapper`}>
@@ -79,9 +83,9 @@ const Poster = (props) => {
   }, [props.endpoint]);
   return (
    
-        <li className="my-list-poster" key={props.id}>
+        <li className="my-list-poster" key={props.id} >
            <Link href={`/${props.mediatype}/${props.id}`} >
-        <a>
+        <a onClick={()=> globalState.setUserMenuOpenAction(false)}>
           <Image
             src={`https://image.tmdb.org/t/p/w500${
               media.poster_path
@@ -97,7 +101,7 @@ const Poster = (props) => {
             <div className="my-list-poster-hover-wrapper">
             <Link href={`/${props.mediatype}/${props.id}`}>
                 <a className="my-list-poster-hover-title">
-              <div >{media.title ? media.title : media.name}</div>
+              <div onClick={()=> globalState.setUserMenuOpenAction(false)} >{media.title ? media.title : media.name}</div>
               </a>
                   </Link>
                 <div className="my-list-poster-hover-buttons">
@@ -105,7 +109,7 @@ const Poster = (props) => {
                 <a>
                 <div className="play-btn">
            
-                  <FontAwesomeIcon icon={faPlay} />
+                  <FontAwesomeIcon icon={faPlay} onClick={()=> globalState.setUserMenuOpenAction(false)} />
                  
                 </div>
                 </a>

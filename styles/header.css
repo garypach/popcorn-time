@@ -7,10 +7,11 @@
 
 .top-header{
     background: rgba(0, 0, 0, 0.371);
+    background: black;
     display: flex;
     position: fixed;
     width: 100%;
-    min-height: 5%;
+    min-height: 45px;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
@@ -18,9 +19,7 @@
     z-index: 10;
     transition: background .3s ease-in-out;
 }
-.top-header:hover{
-    background: black;
-}
+
 .top-header-logo{
     font-size: 18px;
     
@@ -42,11 +41,21 @@
 
 .top-header .search-btn{
     position: absolute;
-    cursor: pointer;
     right: 10%;
+}
+.top-header .fa-search{
+    cursor: pointer;
+
+}
+.top-header .fa-user-astronaut{
+    margin-left: 30px;
+    cursor: pointer;
+    font-size: 18px;
+
 }
 
 @media screen and (max-width: 640px) {
+   
     .top-header-links{
         display: none;
     }

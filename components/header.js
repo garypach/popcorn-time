@@ -1,10 +1,11 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import BrowserMenu from "./Menus/browserMenu";
 import DropDownMenu from "./Menus/dropDownMenu";
 import MenuItem from "./Menus/menuItem";
+import UserMenu from "./Menus/userMenu";
 import { useStateContext } from "./Provider";
 import SearchModal from "./searchModal";
 const Header = (props) => {
@@ -40,8 +41,10 @@ const Header = (props) => {
           </div>
             <div className="search-btn">
                 <FontAwesomeIcon icon={faSearch} onClick={()=>{globalState.setSearchOpenAction(true)}}/>
+                <FontAwesomeIcon icon={faUserAstronaut} onClick={()=>{globalState.setUserMenuOpenAction(!globalState.userMenuOpen)}}/>
             </div>
             <SearchModal/>
+            <UserMenu/>
           <BrowserMenu class="top-header-browserMenu" menuTitle="Browse">
             <DropDownMenu>
               <MenuItem linkTitle="Home" linkLocation="/" />

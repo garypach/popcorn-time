@@ -14,6 +14,8 @@ export function Provider({children}){
   }
 
   const[searchOpen,setSearchOpenAction] = useState(false)
+  const[userMenuOpen, setUserMenuOpenAction] = useState(false)
+
   const [myList, setMyList] = useState(ls.get('myList'))
 
   console.log(myList);
@@ -51,7 +53,9 @@ export function Provider({children}){
       myList,
       setMyList,
       addToList,
-      removeFromList
+      removeFromList,
+      userMenuOpen,
+      setUserMenuOpenAction
     }}>
       {children}
     </StateContext.Provider>

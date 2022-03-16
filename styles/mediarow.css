@@ -25,7 +25,7 @@
     position: absolute;
     transition: .3s all ease-in-out;
     cursor: pointer;
-    z-index: 96;
+    z-index: 2;
 
 }
 .poster-left:hover{
@@ -44,7 +44,7 @@
     position: absolute;
     transition: .3s all ease-in-out;
     cursor: pointer;
-    z-index: 96;
+    z-index: 2;
 
 }
 .poster-right:hover{
@@ -109,7 +109,7 @@
     width:  100%;
     bottom: 0;
     transition: .5s all ease-in-out;
-    z-index: 95;
+    z-index: 1;
 }
 
 .poster:hover .poster-hover-cont{
@@ -125,6 +125,7 @@
     align-items: center;
     padding: 20px;
     font-size: 1.2rem;
+    
 }
 .poster-hover-title{
     width: 65%;

@@ -1,0 +1,85 @@
+.user-menu-cont{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 200px;
+    top: 45px;
+    right: -100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s ease-in-out;
+    z-index: 90;
+
+}
+.user-menu-cont--active{
+    visibility: visible;
+    opacity: 1;
+    right: 0%;
+}
+
+.user-menu-cont .user-menu-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 0, 0,.5);
+    backdrop-filter: blur(5px);
+   
+}
+
+.user-menu-wrapper .user-menu-my-list{
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgb(0, 0, 0,.5);
+    height: 100vh;
+    display: none;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.user-menu-wrapper .user-menu{
+    max-width: 200px;
+    min-width: 200px;
+    background-color: #212124;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-list-posters-container.user-menu-component .my-list-posters-wrapper .my-list-poster{
+    min-width: 200px;
+    min-height: 110px;
+    width: 200px;
+    height: 110px;
+    margin: 0 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    transition: .5s all ease-in-out;
+    margin-top: 15px;
+}
+.my-list-posters-container.user-menu-component  .my-list-posters-container .my-list-posters-wrapper .my-list-poster img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+}
+
+.my-list-posters-container.user-menu-component .my-list-poster-hover-cont .my-list-poster-hover-wrapper{
+    padding: 10px;
+    font-size: .75rem;
+}
+
+.my-list-posters-container.user-menu-component .my-list-poster-hover-buttons{
+    font-size: .5rem;
+    width: 33%;
+}
+
+.my-list-posters-container.user-menu-component .remove-btn{
+    margin-left: 5px;
+}
+@media screen and (min-width:960px) {
+    .user-menu-cont{       
+        max-width: 70%;
+    }
+    .user-menu-wrapper .user-menu-my-list{
+        display: block;
+    }
+}
