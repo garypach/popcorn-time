@@ -64,13 +64,13 @@ const MediaDetails = (props) => {
         </h2>
         <div className="media-times">
           <p>
-            {media.first_air_date ? "episodes " : "release date "}
+            {media.first_air_date ? "Episodes " : "Release date "}
             {media.first_air_date
               ? media.number_of_episodes
               : media.release_date}{" "}
           </p>
           <p>
-            {media.first_air_date ? " season(s) " : "runtime "}
+            {media.first_air_date ? " Season(s) " : "Runtime "}
             {media.first_air_date ? media.number_of_seasons : media.runtime}
             {media.first_air_date ? "" : "m"}
           </p>

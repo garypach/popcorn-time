@@ -1,8 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useStateContext } from './Provider';
 
 const FeaturedMovie = (props) =>
 {
+  const globalState = useStateContext();
+
+  //myList functions
+  const addToList =(props)=>{
+   globalState.addToList({id: props.id, mediaType: props.mediatype })
+ }
    return(
 
        <div className="featured-media featured-movie">
@@ -20,6 +27,9 @@ const FeaturedMovie = (props) =>
           <div className="featured-media-buttons">
             <div className="featured-media-play-btn">
             <FontAwesomeIcon  icon={faPlay} />
+            </div>
+            <div className="featured-media-play-btn" onClick={() =>{addToList(props)}}>
+            <FontAwesomeIcon  icon={faPlus}/>
             </div>
           </div>
         </div>

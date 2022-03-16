@@ -51,7 +51,8 @@ export default function SingleMediaPage(props) {
     <MainLayout>
        <FeaturedMovie
        mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} 
-       title={media.title}
+       mediatype={props.query.mediatype}
+       id={props.query.id}
        />
        <MediaDetails imgSize="large-v" endpoint={`${props.query.mediatype}/${props.query.id}`}/>
        <LazyLoad height={200} offset={-200} placeholder={<Skeleton/>}>    

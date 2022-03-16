@@ -41,7 +41,7 @@ export default function Index(props) {
     <MainLayout>
       <Link href={`/movie/${props.videoData.id}`}>
         <a>
-    <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.videoData.title} overview={props.videoData.overview}/>
+    <FeaturedVideo mediaURL={`https://www.youtube.com/embed/${onekey[0]}?autoplay=1&loop=1&start=1&mute=1&playlist=${onekey[0]}`} title={props.videoData.title} overview={props.videoData.overview} id={props.videoData.id} mediatype={props.videoData.mediatype} />
     </a>
     </Link>
     <Home />
